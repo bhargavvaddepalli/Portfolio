@@ -1,67 +1,156 @@
-import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
-const projects = [
-  {
-    id: 1,
-    title: "E-Commerce Website",
-    description: "A full-stack MERN e-commerce platform with authentication and payment integration.",
-    image: "https://via.placeholder.com/300",
-  },
-  {
-    id: 2,
-    title: "Portfolio Website",
-    description: "A responsive portfolio website showcasing my skills, projects, and resume.",
-    image: "https://via.placeholder.com/300",
-  },
-  {
-    id: 3,
-    title: "Chat Application",
-    description: "A real-time chat app using WebSockets and Firebase authentication.",
-    image: "https://via.placeholder.com/300",
-  },
-];
-
-export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null);
+const Projects = () => {
+  // Sample project data - replace with your actual projects
+  const projectsData = [
+    {
+      id: 1,
+      title: "E-Commerce Platform",
+      description: "A full-stack e-commerce application with user authentication, product catalog, shopping cart, and payment gateway integration using Stripe.",
+      technologies: ["React", "Node.js", "Express", "MongoDB", "Redux", "Stripe API"],
+      image: "https://via.placeholder.com/800x450",
+      github: "https://github.com/username/project-name",
+      live: "https://project-demo.com"
+    },
+    {
+      id: 2,
+      title: "Task Management System",
+      description: "Real-time collaborative task management app with drag-and-drop interfaces, user roles, and notifications.",
+      technologies: ["React", "Firebase", "Material UI", "Redux", "React DnD"],
+      image: "https://via.placeholder.com/800x450",
+      github: "https://github.com/username/project-name",
+      live: "https://project-demo.com"
+    },
+    {
+      id: 3,
+      title: "Social Media Dashboard",
+      description: "Analytics dashboard that connects to various social media APIs to provide insights and statistics in a unified interface.",
+      technologies: ["React", "Chart.js", "Node.js", "Express", "OAuth"],
+      image: "https://via.placeholder.com/800x450",
+      github: "https://github.com/username/project-name",
+      live: "https://project-demo.com"
+    },
+  ];
 
   return (
-    <div 
-    id="projects" className="min-h-screen bg-black text-white px-6 py-12">
-      <h2 className="text-4xl font-bold text-center mb-8">My Projects</h2>
-      <div className="grid md:grid-cols-3 gap-6">
-        {projects.map((project) => (
-          <Card
+    <section
+      id="projects"
+      className="min-h-screen flex flex-col items-center justify-center text-white px-6 md:px-12 py-20 relative"
+    >
+      {/* Animated Heading */}
+      <motion.h1
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-16 text-center tracking-tight"
+      >
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">
+          My Projects
+        </span>
+      </motion.h1>
+
+      {/* Projects Container */}
+      <div className="w-full max-w-6xl mx-auto">
+        {projectsData.map((project, index) => (
+          <motion.div
             key={project.id}
-            className="bg-gray-900 p-4 cursor-pointer hover:scale-105 transition-all"
-            onClick={() => setSelectedProject(project)}
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: index * 0.2 }}
+            className="mb-20 last:mb-0"
           >
-            <img src={project.image} alt={project.title} className="rounded-md w-full h-40 object-cover" />
-            <CardContent>
-              <h3 className="text-xl font-semibold mt-3">{project.title}</h3>
-              <p className="text-gray-400 text-sm">{project.description}</p>
-              <Button className="mt-4 w-full">Explore</Button>
-            </CardContent>
-          </Card>
+            <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center`}>
+              {/* Project Image */}
+              <motion.div 
+                className="w-full lg:w-1/2"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="rounded-lg shadow-xl w-full h-auto object-cover"
+                />
+              </motion.div>
+
+              {/* Project Info */}
+              <div className="w-full lg:w-1/2 space-y-4">
+                <motion.h3 
+                  className="text-3xl font-bold text-blue-500"
+                  initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 + 0.2 }}
+                >
+                  {project.title}
+                </motion.h3>
+
+                <motion.p 
+                  className="text-lg text-gray-300 leading-relaxed"
+                  initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
+                >
+                  {project.description}
+                </motion.p>
+
+                {/* Technologies */}
+                <motion.div 
+                  className="flex flex-wrap gap-2"
+                  initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 + 0.4 }}
+                >
+                  {project.technologies.map(tech => (
+                    <span 
+                      key={tech} 
+                      className="bg-blue-900 bg-opacity-50 px-3 py-1 rounded-full text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </motion.div>
+
+                {/* Links */}
+                <motion.div 
+                  className="flex gap-4 pt-4"
+                  initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 + 0.5 }}
+                >
+                  <a 
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-all"
+                  >
+                    <FontAwesomeIcon icon={faGithub} /> GitHub
+                  </a>
+                  <a 
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-all"
+                  >
+                    <FontAwesomeIcon icon={faExternalLinkAlt} /> Live Demo
+                  </a>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
         ))}
       </div>
-
-      {selectedProject && (
-        <Dialog open={true} onOpenChange={() => setSelectedProject(null)}>
-          <DialogContent className="bg-gray-900 text-white">
-            <DialogHeader>
-              <DialogTitle>{selectedProject.title}</DialogTitle>
-            </DialogHeader>
-            <img src={selectedProject.image} alt={selectedProject.title} className="rounded-md w-full h-60 object-cover mb-4" />
-            <p>{selectedProject.description}</p>
-            <Button className="mt-4 w-full" onClick={() => setSelectedProject(null)}>
-              Close
-            </Button>
-          </DialogContent>
-        </Dialog>
-      )}
-    </div>
+    </section>
   );
-}
+};
+
+export default Projects;

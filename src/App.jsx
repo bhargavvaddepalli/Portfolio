@@ -5,6 +5,7 @@ import Greeting from "./components/ScrollingText"
 import AboutMe from "./components/AboutMe"
 import Projects from "./components/Projects"
 import Contact from "./components/Contact"
+import Skills from "./components/Skills"
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
             {/* <h1 className="text-5xl font-bold text-center mt-20">Welcome to My Portfolio</h1> */}
             <Greeting />
             <AboutMe />
+            <Skills />
             <Projects />
             <Contact/>
           </div>

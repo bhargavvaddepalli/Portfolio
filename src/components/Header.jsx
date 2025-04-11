@@ -1,11 +1,30 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faBriefcase, faInfoCircle, faEnvelope,  faFileAlt, faBars, faTimes, faSearchPlus, faSearchMinus,  faGear } from "@fortawesome/free-solid-svg-icons";
+import { 
+  faHome, 
+  faBriefcase, 
+  faInfoCircle, 
+  faEnvelope, 
+  faFileAlt, 
+  faBars, 
+  faTimes, 
+  faSearchPlus, 
+  faSearchMinus, 
+  faGear 
+} from "@fortawesome/free-solid-svg-icons";
 import ResumeImage from "../assets/Resume_Bhargav.png";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../components/ui/sheet"; // Adjust the import path based on your file structure
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [scale, setScale] = useState(0.9);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleZoomIn = () => {
     if (scale < 3) setScale(scale + 0.2);
@@ -14,44 +33,102 @@ const Header = () => {
   const handleZoomOut = () => {
     if (scale > 0.5) setScale(scale - 0.2);
   };
-  
-  
+
   return (
     <>
       <header className="fixed top-0 left-0 w-full bg-opacity-90 bg-black-900 text-white shadow-lg py-4 px-6 md:px-12 flex justify-between items-center z-40">
         <h1 className="text-2xl md:text-3xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Portfolio</h1>
 
-            <nav className="hidden md:flex space-x-8 text-lg font-medium">  
-      <a href="#" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
-        <FontAwesomeIcon icon={faHome} className="mr-2" /> Home  
-      </a>  
-      <a href="#about" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
-        <FontAwesomeIcon icon={faInfoCircle} className="mr-2" /> About  
-      </a>  
-      <a href="#projects" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
-        <FontAwesomeIcon icon={faBriefcase} className="mr-2" /> Projects  
-      </a>  
-      <a href="#skills" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
-      <FontAwesomeIcon icon={faGear } className="mr-2" /> Skills  
-      </a>   
-      <a href="#contact" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
-        <FontAwesomeIcon icon={faEnvelope} className="mr-2" /> Contact  
-      </a>  
-      <button  
-        onClick={() => setIsModalOpen(true)}  
-        className="flex items-center gap-2 bg-blue-700 px-4 py-2 rounded-lg text-white hover:bg-blue-600 transition duration-300 cursor-pointer"  
-      >  
-        <FontAwesomeIcon icon={faFileAlt} /> Resume  
-      </button>  
-    </nav>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex space-x-8 text-lg font-medium">  
+          <a href="#" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
+            <FontAwesomeIcon icon={faHome} className="mr-2" /> Home  
+          </a>  
+          <a href="#about" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
+            <FontAwesomeIcon icon={faInfoCircle} className="mr-2" /> About  
+          </a>  
+          <a href="#skills" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
+            <FontAwesomeIcon icon={faGear} className="mr-2" /> Skills  
+          </a>   
+          <a href="#projects" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
+            <FontAwesomeIcon icon={faBriefcase} className="mr-2" /> Projects  
+          </a>  
+          
+          <a href="#contact" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
+            <FontAwesomeIcon icon={faEnvelope} className="mr-2" /> Contact  
+          </a>  
+          <button  
+            onClick={() => setIsModalOpen(true)}  
+            className="flex items-center gap-2 bg-blue-700 px-4 py-2 rounded-lg text-white hover:bg-blue-600 transition duration-300 cursor-pointer"  
+          >  
+            <FontAwesomeIcon icon={faFileAlt} /> Resume  
+          </button>  
+        </nav>
 
-
-        <button
-          className="md:hidden text-white p-2 rounded hover:bg-gray-700 transition duration-300"
-          onClick={() => setIsModalOpen(true)}
-        >
-          <FontAwesomeIcon icon={faBars} size="lg" />
+       {/* Mobile Navigation with Sheet */}
+<Sheet open={isOpen} onOpenChange={setIsOpen}>
+  <SheetTrigger asChild>
+    <button
+      className="md:hidden text-white p-2 rounded hover:bg-gray-700 transition duration-300 cursor-pointer"
+    >
+      <FontAwesomeIcon icon={faBars} size="lg" />
+    </button>
+  </SheetTrigger>
+  <SheetContent side="right" className="bg-gray-900 text-white border-r-gray-800 w-70">
+    <SheetHeader>
+      <SheetTitle className="text-white text-xl">Hi</SheetTitle>
+    </SheetHeader>
+    <div className="p-2">
+      <nav className="flex flex-col gap-2">
+        <a 
+          href="#" 
+          className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
+          onClick={() => setIsOpen(false)}
+        >  
+          <FontAwesomeIcon icon={faHome} className="mr-2" /> Home  
+        </a>  
+        <a 
+          href="#about" 
+          className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
+          onClick={() => setIsOpen(false)}
+        >  
+          <FontAwesomeIcon icon={faInfoCircle} className="mr-2" /> About  
+        </a>  
+        <a 
+          href="#skills" 
+          className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
+          onClick={() => setIsOpen(false)}
+        >  
+          <FontAwesomeIcon icon={faGear} className="mr-2" /> Skills  
+        </a>  
+        <a 
+          href="#projects" 
+          className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
+          onClick={() => setIsOpen(false)}
+        >  
+          <FontAwesomeIcon icon={faBriefcase} className="mr-2" /> Projects  
+        </a>  
+       
+        <a 
+          href="#contact" 
+          className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
+          onClick={() => setIsOpen(false)}
+        >  
+          <FontAwesomeIcon icon={faEnvelope} className="mr-2" /> Contact  
+        </a>  
+        <button  
+          onClick={() => {
+            setIsModalOpen(true);
+            setIsOpen(false);
+          }}  
+          className="flex items-center gap-2 bg-blue-700 px-4 py-2 rounded-lg text-white hover:bg-blue-600 transition duration-300 cursor-pointer mt-2"  
+        >  
+          <FontAwesomeIcon icon={faFileAlt} /> Resume  
         </button>
+      </nav>
+    </div>
+  </SheetContent>
+</Sheet>
       </header>
 
       {/* Resume Modal - completely rebuilt for better scrolling */}
