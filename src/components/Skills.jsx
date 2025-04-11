@@ -14,7 +14,7 @@ import {
   faNpm
 } from "@fortawesome/free-brands-svg-icons";
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
-
+//hi
 const Skills = () => {
   const skillsData = [
     { name: "React", icon: faReact, color: "#61DAFB" },
