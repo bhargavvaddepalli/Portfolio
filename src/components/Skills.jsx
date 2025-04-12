@@ -11,23 +11,23 @@ import {
   faPython, 
   faAws,
   faDocker,
-  faNpm
+  faNpm,
+  faJava
 } from "@fortawesome/free-brands-svg-icons";
-import { faDatabase } from "@fortawesome/free-solid-svg-icons";
-//hi
+import { faDatabase, faCode, faServer, faBolt, faCog } from "@fortawesome/free-solid-svg-icons";
+
 const Skills = () => {
   const skillsData = [
-    { name: "React", icon: faReact, color: "#61DAFB" },
-    { name: "JavaScript", icon: faJs, color: "#F7DF1E" },
-    { name: "Node.js", icon: faNodeJs, color: "#43853D" },
     { name: "HTML5", icon: faHtml5, color: "#E34F26" },
     { name: "CSS3", icon: faCss3Alt, color: "#1572B6" },
+    { name: "Java", icon: faJava, color: "#007396" },
+    { name: "JavaScript", icon: faJs, color: "#F7DF1E" },
+    { name: "ReactJS", icon: faReact, color: "#61DAFB" },
+    { name: "Tailwind CSS", icon: faCss3Alt, color: "#06B6D4" },
+    { name: "Framer Motion", icon: faBolt, color: "#0055FF" },
+    { name: "Node.js", icon: faNodeJs, color: "#43853D" },
     { name: "MongoDB", icon: faDatabase, color: "#47A248" },
     { name: "Git", icon: faGit, color: "#F05032" },
-    { name: "Python", icon: faPython, color: "#3776AB" },
-    { name: "AWS", icon: faAws, color: "#FF9900" },
-    { name: "Docker", icon: faDocker, color: "#2496ED" },
-    { name: "NPM", icon: faNpm, color: "#CB3837" },
   ];
 
   return (
@@ -39,8 +39,11 @@ const Skills = () => {
       <motion.h1
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ amount: 0.5 }}
+        transition={{ 
+          duration: 0.8, 
+          ease: "easeOut"
+        }}
         className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-16 text-center tracking-tight"
       >
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">
@@ -52,8 +55,11 @@ const Skills = () => {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ amount: 0.2 }}
+        transition={{ 
+          duration: 0.8, 
+          ease: "easeOut"
+        }}
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 md:gap-12"
       >
         {skillsData.map((skill, index) => (
@@ -61,18 +67,27 @@ const Skills = () => {
             key={skill.name}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ amount: 0.1 }}
+            transition={{ 
+              duration: 0.5, 
+              delay: index * 0.1
+            }}
             whileHover={{ scale: 1.1 }}
             className="flex flex-col items-center"
           >
-            <div className="bg-gray-800 bg-opacity-50 p-6 rounded-full mb-4 shadow-lg hover:shadow-xl transition-all">
+            <motion.div 
+              className="bg-gray-800 bg-opacity-50 p-6 rounded-full mb-4 shadow-lg hover:shadow-xl transition-all"
+              whileHover={{ 
+                boxShadow: `0 0 15px ${skill.color}`,
+                backgroundColor: "rgba(31, 41, 55, 0.8)" 
+              }}
+            >
               <FontAwesomeIcon 
                 icon={skill.icon} 
                 className="text-4xl md:text-5xl" 
                 style={{ color: skill.color }} 
               />
-            </div>
+            </motion.div>
             <p className="text-lg font-medium text-center">{skill.name}</p>
           </motion.div>
         ))}

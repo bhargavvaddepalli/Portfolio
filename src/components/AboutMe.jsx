@@ -11,7 +11,7 @@ const AboutMe = () => {
       <motion.h1
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{  amount: 0.5 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 text-center tracking-tight"
       >
@@ -24,14 +24,14 @@ const AboutMe = () => {
       <motion.div
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ amount: 0.5 }}
         transition={{ duration: 1, ease: "easeOut" }}
         className="text-lg md:text-xl max-w-3xl text-gray-200 text-center"
       >
         <motion.p
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{  amount: 0.5 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-6 leading-relaxed"
         >
@@ -41,7 +41,7 @@ const AboutMe = () => {
         <motion.p
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ amount: 0.5 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mb-6 leading-relaxed"
         >
@@ -51,7 +51,7 @@ const AboutMe = () => {
         <motion.p
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ amount: 0.5}}
           transition={{ duration: 0.6, delay: 0.6 }}
           className="leading-relaxed"
         >

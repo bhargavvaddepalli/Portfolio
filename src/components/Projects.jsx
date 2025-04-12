@@ -45,7 +45,7 @@ const Projects = () => {
       <motion.h1
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ amount: 0.5 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-16 text-center tracking-tight"
       >
@@ -61,7 +61,7 @@ const Projects = () => {
             key={project.id}
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ amount: 0.2 }}
             transition={{ duration: 0.8, delay: index * 0.2 }}
             className="mb-20 last:mb-0"
           >
@@ -85,7 +85,7 @@ const Projects = () => {
                   className="text-3xl font-bold text-blue-500"
                   initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ amount: 0.1 }}
                   transition={{ duration: 0.6, delay: index * 0.2 + 0.2 }}
                 >
                   {project.title}
@@ -95,7 +95,7 @@ const Projects = () => {
                   className="text-lg text-gray-300 leading-relaxed"
                   initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ amount: 0.1 }}
                   transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
                 >
                   {project.description}
@@ -106,7 +106,7 @@ const Projects = () => {
                   className="flex flex-wrap gap-2"
                   initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ amount: 0.1 }}
                   transition={{ duration: 0.6, delay: index * 0.2 + 0.4 }}
                 >
                   {project.technologies.map(tech => (
@@ -124,7 +124,7 @@ const Projects = () => {
                   className="flex gap-4 pt-4"
                   initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ amount: 0.1 }}
                   transition={{ duration: 0.6, delay: index * 0.2 + 0.5 }}
                 >
                   <a 

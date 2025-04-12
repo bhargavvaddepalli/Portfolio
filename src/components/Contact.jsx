@@ -53,21 +53,21 @@ const Contact = () => {
     }, 1500);
     
     // In a real implementation, you would send the form data to your backend
-    // fetch('/api/contact', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(formData)
-    // })
-    // .then(response => response.json())
-    // .then(data => {
-    //   setIsSubmitting(false);
-    //   setSubmitStatus("success");
-    //   setFormData({ name: "", email: "", subject: "", message: "" });
-    // })
-    // .catch(error => {
-    //   setIsSubmitting(false);
-    //   setSubmitStatus("error");
-    // });
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      setIsSubmitting(false);
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    })
+    .catch(error => {
+      setIsSubmitting(false);
+      setSubmitStatus("error");
+    });
   };
 
   return (
@@ -79,7 +79,7 @@ const Contact = () => {
       <motion.h1
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ amount: 0.5 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-16 text-center tracking-tight"
       >
@@ -93,7 +93,7 @@ const Contact = () => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ amount: 0.5 }}
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
@@ -109,7 +109,7 @@ const Contact = () => {
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <div className="flex items-center">
@@ -152,7 +152,7 @@ const Contact = () => {
             className="pt-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
             <h3 className="text-xl font-semibold mb-4">Connect with me</h3>
@@ -189,7 +189,7 @@ const Contact = () => {
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ amount: 0.5 }}
           transition={{ duration: 0.8 }}
           className="bg-gray-800 bg-opacity-50 rounded-xl p-8"
         >
@@ -200,7 +200,7 @@ const Contact = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ amount: 0.1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <label htmlFor="name" className="block text-gray-300 mb-2">Your Name</label>
@@ -218,7 +218,7 @@ const Contact = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ amount: 0.1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <label htmlFor="email" className="block text-gray-300 mb-2">Your Email</label>
@@ -237,7 +237,7 @@ const Contact = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ amount: 0.1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               <label htmlFor="subject" className="block text-gray-300 mb-2">Subject</label>
@@ -255,7 +255,7 @@ const Contact = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ amount: 0.1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <label htmlFor="message" className="block text-gray-300 mb-2">Message</label>
@@ -273,7 +273,7 @@ const Contact = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ amount: 0.1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
               className="text-right"
             >
