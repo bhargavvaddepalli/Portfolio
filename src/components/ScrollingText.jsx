@@ -1,7 +1,7 @@
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 
-const Greeting = () => {
+const ScrollingText = () => {
   return (
     <div className="p-6 sm:p-12  mt-50 text-xl lg:ml-50 mb-20">
       <motion.h1
@@ -40,4 +40,4 @@ const Greeting = () => {
   );
 };
 
-export default Greeting;
+export default ScrollingText;

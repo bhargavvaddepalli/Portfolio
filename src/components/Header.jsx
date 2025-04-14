@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { 
-  faHome, 
-  faBriefcase, 
-  faInfoCircle, 
-  faEnvelope, 
-  faFileAlt, 
-  faBars, 
-  faTimes, 
-  faSearchPlus, 
-  faSearchMinus, 
-  faGear 
-} from "@fortawesome/free-solid-svg-icons";
+import HomeIcon from "./ui/home.jsx";
+import SkillIcon from "./ui/settings-gear.jsx";
+import ConnectIcon from "./ui/connect.jsx";
+import FileTextIcon from "./ui/file-text.jsx";
+import BookTextIcon from "./ui/book-text.jsx";
+import IdCardIcon from "./ui/id-card.jsx";
 import ResumeImage from "../assets/Resume_Bhargav.png";
 import {
   Sheet,
@@ -20,6 +13,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../components/ui/sheet"; // Adjust the import path based on your file structure
+import { faBars, faTimes, faSearchPlus, faSearchMinus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -41,94 +36,94 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8 text-lg font-medium">  
-          <a href="#" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
-            <FontAwesomeIcon icon={faHome} className="mr-2" /> Home  
+          <a href="#" className="flex items-center hover:text-blue-500 transition duration-300">
+           <HomeIcon className=""  /> Home
+          </a>
+          <a href="#about" className="flex items-center hover:text-blue-500 transition duration-300">  
+            <BookTextIcon className="mr-2" /> About  
           </a>  
-          <a href="#about" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
-            <FontAwesomeIcon icon={faInfoCircle} className="mr-2" /> About  
-          </a>  
-          <a href="#skills" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
-            <FontAwesomeIcon icon={faGear} className="mr-2" /> Skills  
+          <a href="#skills" className="flex items-center hover:text-blue-500 transition duration-300"> 
+            <SkillIcon className="mr-2" /> Skills  
           </a>   
-          <a href="#projects" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
-            <FontAwesomeIcon icon={faBriefcase} className="mr-2" /> Projects  
+          <a href="#projects" className="flex items-center hover:text-blue-500 transition duration-300">  
+            <IdCardIcon className="mr-2" /> Projects  
           </a>  
           
-          <a href="#contact" className="flex items-center gap-2 hover:text-blue-500 transition duration-300">  
-            <FontAwesomeIcon icon={faEnvelope} className="mr-2" /> Contact  
+          <a href="#connect" className="flex items-center hover:text-blue-500 transition duration-300">  
+            <ConnectIcon className="mr-2" /> Connect  
           </a>  
           <button  
             onClick={() => setIsModalOpen(true)}  
             className="flex items-center gap-2 bg-blue-700 px-4 py-2 rounded-lg text-white hover:bg-blue-600 transition duration-300 cursor-pointer"  
           >  
-            <FontAwesomeIcon icon={faFileAlt} /> Resume  
+            <FileTextIcon /> Resume  
           </button>  
         </nav>
 
        {/* Mobile Navigation with Sheet */}
-<Sheet open={isOpen} onOpenChange={setIsOpen}>
-  <SheetTrigger asChild>
-    <button
-      className="md:hidden text-white p-2 rounded hover:bg-gray-700 transition duration-300 cursor-pointer"
-    >
-      <FontAwesomeIcon icon={faBars} size="lg" />
-    </button>
-  </SheetTrigger>
-  <SheetContent side="right" className="bg-gray-900 text-white border-r-gray-800 w-70">
-    <SheetHeader>
-      <SheetTitle className="text-white text-xl">Hi</SheetTitle>
-    </SheetHeader>
-    <div className="p-2">
-      <nav className="flex flex-col gap-2">
-        <a 
-          href="#" 
-          className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
-          onClick={() => setIsOpen(false)}
-        >  
-          <FontAwesomeIcon icon={faHome} className="mr-2" /> Home  
-        </a>  
-        <a 
-          href="#about" 
-          className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
-          onClick={() => setIsOpen(false)}
-        >  
-          <FontAwesomeIcon icon={faInfoCircle} className="mr-2" /> About  
-        </a>  
-        <a 
-          href="#skills" 
-          className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
-          onClick={() => setIsOpen(false)}
-        >  
-          <FontAwesomeIcon icon={faGear} className="mr-2" /> Skills  
-        </a>  
-        <a 
-          href="#projects" 
-          className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
-          onClick={() => setIsOpen(false)}
-        >  
-          <FontAwesomeIcon icon={faBriefcase} className="mr-2" /> Projects  
-        </a>  
-       
-        <a 
-          href="#contact" 
-          className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
-          onClick={() => setIsOpen(false)}
-        >  
-          <FontAwesomeIcon icon={faEnvelope} className="mr-2" /> Contact  
-        </a>  
-        <button  
-          onClick={() => {
-            setIsModalOpen(true);
-            setIsOpen(false);
-          }}  
-          className="flex items-center gap-2 bg-blue-700 px-4 py-2 rounded-lg text-white hover:bg-blue-600 transition duration-300 cursor-pointer mt-2"  
-        >  
-          <FontAwesomeIcon icon={faFileAlt} /> Resume  
-        </button>
-      </nav>
-    </div>
-  </SheetContent>
-</Sheet>
+      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <SheetTrigger asChild>
+          <button
+            className="md:hidden text-white p-2 rounded hover:bg-gray-700 transition duration-300 cursor-pointer"
+          >
+            <FontAwesomeIcon icon={faBars} size="lg" />
+          </button>
+        </SheetTrigger>
+        <SheetContent side="right" className="bg-gray-900 text-white border-r-gray-800 w-70">
+          <SheetHeader>
+            <SheetTitle className="text-white text-xl">Hi Buddy..💕</SheetTitle>
+          </SheetHeader>
+          <div className="p-2">
+            <nav className="flex flex-col gap-2">
+              <a 
+                href="#" 
+                className="flex items-center gap-2 hover:text-blue-500 transition duration-300  "
+                onClick={() => setIsOpen(false)}
+              >  
+                <HomeIcon className="text-white" size={20} /> Home
+              </a>  
+              <a 
+                href="#about" 
+                className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
+                onClick={() => setIsOpen(false)}
+              >  
+                <BookTextIcon className="mr-2" /> About  
+              </a>  
+              <a 
+                href="#skills" 
+                className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
+                onClick={() => setIsOpen(false)}
+              >  
+                <SkillIcon className="mr-2" /> Skills  
+              </a>  
+              <a 
+                href="#projects" 
+                className="flex items-center  hover:text-blue-500 transition duration-300  py-2"
+                onClick={() => setIsOpen(false)}
+              >  
+                <IdCardIcon className="mr-2" /> Projects  
+              </a>  
+             
+              <a 
+                href="#connect" 
+                className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
+                onClick={() => setIsOpen(false)}
+              >  
+                <ConnectIcon className="mr-2" /> Connect  
+              </a>  
+              <button  
+                onClick={() => {
+                  setIsModalOpen(true);
+                  setIsOpen(false);
+                }}  
+                className="flex items-center gap-3 bg-blue-700 px-2 py-2 rounded-lg text-white hover:bg-blue-600 transition duration-300 cursor-pointer mt-2"  
+              >  
+                <FileTextIcon /> Resume  
+              </button>
+            </nav>
+          </div>
+        </SheetContent>
+      </Sheet>
       </header>
 
       {/* Resume Modal - completely rebuilt for better scrolling */}

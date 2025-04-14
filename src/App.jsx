@@ -1,10 +1,10 @@
 import "./App.css"
 import galaxyVideo from "./assets/galaxy.mp4"
 import Layout from "./components/Layout"
-import Greeting from "./components/ScrollingText"
+import ScrollingText from "./components/ScrollingText"
 import AboutMe from "./components/AboutMe"
 import Projects from "./components/Projects"
-import Contact from "./components/Contact"
+import Contact from "./components/Connect"
 import Skills from "./components/Skills"
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
         <Layout>
           <div className="relative z-10">
             {/* <h1 className="text-5xl font-bold text-center mt-20">Welcome to My Portfolio</h1> */}
-            <Greeting />
+            <ScrollingText />
             <AboutMe />
             <Skills />
             <Projects />
