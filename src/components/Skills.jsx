@@ -7,7 +7,7 @@ import {
   faNodeJs, 
   faHtml5, 
   faCss3Alt, 
-  faGit, 
+  faGithub, 
   faPython, 
   faAws,
   faDocker,
@@ -27,7 +27,7 @@ const Skills = () => {
     { name: "Framer Motion", icon: faBolt, color: "#0055FF" },
     { name: "Node.js", icon: faNodeJs, color: "#43853D" },
     { name: "MongoDB", icon: faDatabase, color: "#47A248" },
-    { name: "Git", icon: faGit, color: "#F05032" },
+    { name: "Github", icon: faGithub, color: "#F05032" },
   ];
 
   return (

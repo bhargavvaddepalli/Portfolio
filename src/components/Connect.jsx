@@ -72,7 +72,7 @@ const Contact = () => {
 
   return (
     <section
-      id="contact"
+      id="connect"
       className="min-h-screen flex flex-col items-center justify-center text-white px-6 md:px-12 py-20 relative"
     >
       {/* Animated Heading */}
