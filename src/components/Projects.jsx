@@ -20,7 +20,7 @@ const Projects = () => {
         "Redux",
         "Stripe API",
       ],
-      image: "https://via.placeholder.com/800x450",
+      image: "src/assets/Ecommerce.png",
       github: "https://github.com/bhargavvaddepalli/ELITE-WEAR",
       live: "https://project-demo.com"
     },
@@ -30,7 +30,7 @@ const Projects = () => {
       description:
         "A PHP-based chat application that enables real-time messaging between users. Features include user authentication, chat rooms, and message timestamps.",
       technologies: ["PHP", "MySQL", "AJAX", "JavaScript", "HTML", "CSS"],
-      image: "https://via.placeholder.com/800x450", // Replace with your own screenshot URL
+      image: "src/assets/chatapp.png", // Replace with your own screenshot URL
       github: "https://github.com/bhargavvaddepalli/PHP", // Replace with your GitHub repo URL
       live: "https://your-chat-app-demo.com", // Replace with your live project link if deployed
     },
@@ -40,7 +40,7 @@ const Projects = () => {
       description:
         "Analytics dashboard that connects to various social media APIs to provide insights and statistics in a unified interface.",
       technologies: ["React", "Chart.js", "Node.js", "Express", "OAuth"],
-      image: "https://via.placeholder.com/800x450",
+      image: "src/assets/loop.png",
       github: "https://github.com/bhargavvaddepalli/Loop-",
       live: "https://project-demo.com",
     },
