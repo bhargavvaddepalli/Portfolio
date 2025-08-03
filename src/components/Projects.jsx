@@ -3,6 +3,10 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import EcommerceImg from "../assets/Ecommerce.png";
+import ChatAppImg from "../assets/chatapp.png";
+import LoopImg from "../assets/loop.png";
+
 
 const Projects = () => {
   // Sample project data - replace with your actual projects
@@ -20,7 +24,7 @@ const Projects = () => {
         "Redux",
         "Stripe API",
       ],
-      image: "src/assets/Ecommerce.png",
+      image: EcommerceImg,
       github: "https://github.com/bhargavvaddepalli/ELITE-WEAR",
       live: "https://project-demo.com"
     },
@@ -30,7 +34,7 @@ const Projects = () => {
       description:
         "A PHP-based chat application that enables real-time messaging between users. Features include user authentication, chat rooms, and message timestamps.",
       technologies: ["PHP", "MySQL", "AJAX", "JavaScript", "HTML", "CSS"],
-      image: "src/assets/chatapp.png", // Replace with your own screenshot URL
+      image: ChatAppImg, // Replace with your own screenshot URL
       github: "https://github.com/bhargavvaddepalli/PHP", // Replace with your GitHub repo URL
       live: "https://your-chat-app-demo.com", // Replace with your live project link if deployed
     },
@@ -40,7 +44,7 @@ const Projects = () => {
       description:
         "Analytics dashboard that connects to various social media APIs to provide insights and statistics in a unified interface.",
       technologies: ["React", "Chart.js", "Node.js", "Express", "OAuth"],
-      image: "src/assets/loop.png",
+      image: LoopImg,
       github: "https://github.com/bhargavvaddepalli/Loop-",
       live: "https://project-demo.com",
     },
