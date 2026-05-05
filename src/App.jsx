@@ -1,6 +1,5 @@
 import "./App.css"
 import { useState } from "react"
-import galaxyVideo from "./assets/galaxy.mp4"
 import WebTrustLogo from "./assets/webtrust-logo.png"
 import Layout from "./components/Layout"
 import ScrollingText from "./components/ScrollingText"
@@ -37,7 +36,7 @@ const App = () => {
         onCanPlayThrough={() => setVideoLoaded(true)}
         onLoadedData={() => setVideoLoaded(true)}
       >
-        <source src={galaxyVideo} type="video/mp4" />
+        <source src="/videos/galaxy.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

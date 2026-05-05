@@ -1,17 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
-import EcommerceImg from "../assets/Ecommerce.png";
-import ChatAppImg from "../assets/chatapp.png";
-import LoopImg from "../assets/loop.png";
 import PhotographyImg from "../assets/photography.png";
 import PetShopImg from "../assets/petshop.png";
 import WeddingImg from "../assets/wedding.png";
-import PhotographyTrailer from "../assets/photography-trailer.mp4";
-import PetShopTrailer from "../assets/petshop-trailer.mp4";
-import WeddingTrailer from "../assets/wedding-trailer.mp4";
 
 const ProjectImage = ({ project, index }) => {
   const [showVideo, setShowVideo] = useState(false);
@@ -116,7 +109,7 @@ const Projects = () => {
         "Supabase",
       ],
       image: PhotographyImg,
-      trailer: PhotographyTrailer,
+      trailer: "/videos/photography-trailer.mp4",
       github: "",
       live: "https://www.rajeshkannaphotography.com/"
     },
@@ -132,7 +125,7 @@ const Projects = () => {
         "Vercel",
       ],
       image: PetShopImg,
-      trailer: PetShopTrailer,
+      trailer: "/videos/petshop-trailer.mp4",
       github: "",
       live: "https://pet-shop-ashen.vercel.app/shop"
     },
@@ -148,7 +141,7 @@ const Projects = () => {
         "Framer Motion",
       ],
       image: WeddingImg,
-      trailer: WeddingTrailer,
+      trailer: "/videos/wedding-trailer.mp4",
       github: "",
       live: "https://wedding-website-sepia-phi.vercel.app"
     },
