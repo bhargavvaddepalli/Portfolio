@@ -10,7 +10,7 @@ import {
 import { 
   faLinkedin, 
   faGithub, 
-  faTwitter   
+  faInstagram   
 } from "@fortawesome/free-brands-svg-icons";
 
 const Contact = () => {
@@ -174,12 +174,12 @@ const Contact = () => {
                 <FontAwesomeIcon icon={faGithub} className="text-white text-xl" />
               </a>
               <a 
-                href="" 
+                href="https://www.instagram.com/web_trust_/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-gray-800 hover:bg-blue-500 rounded-full flex items-center justify-center transition-colors"
+                className="w-12 h-12 bg-gray-800 hover:bg-pink-600 rounded-full flex items-center justify-center transition-colors"
               >
-                <FontAwesomeIcon icon={faTwitter} className="text-white text-xl" />
+                <FontAwesomeIcon icon={faInstagram} className="text-white text-xl" />
               </a>
             </div>
           </motion.div>
