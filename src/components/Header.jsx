@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import HomeIcon from "./ui/home.jsx";
 import SkillIcon from "./ui/settings-gear.jsx";
 import ConnectIcon from "./ui/connect.jsx";
 import FileTextIcon from "./ui/file-text.jsx";
 import BookTextIcon from "./ui/book-text.jsx";
 import IdCardIcon from "./ui/id-card.jsx";
+import InstagramIcon from "./ui/instagram.jsx";
 import ResumeImage from "../assets/Resume_Bhargav.png";
+import WebTrustLogo from "../assets/webtrust-logo.png";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "../components/ui/sheet"; // Adjust the import path based on your file structure
+} from "../components/ui/sheet";
 import { faBars, faTimes, faSearchPlus, faSearchMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -20,6 +22,24 @@ const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [scale, setScale] = useState(0.9);
   const [isOpen, setIsOpen] = useState(false);
+
+  // Refs for animated icons
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const skillsRef = useRef(null);
+  const projectsRef = useRef(null);
+  const connectRef = useRef(null);
+  const resumeRef = useRef(null);
+  const instaRef = useRef(null);
+
+  // Refs for mobile animated icons
+  const mHomeRef = useRef(null);
+  const mAboutRef = useRef(null);
+  const mSkillsRef = useRef(null);
+  const mProjectsRef = useRef(null);
+  const mConnectRef = useRef(null);
+  const mResumeRef = useRef(null);
+  const mInstaRef = useRef(null);
 
   const handleZoomIn = () => {
     if (scale < 3) setScale(scale + 0.2);
@@ -32,32 +52,77 @@ const Header = () => {
   return (
     <>
       <header className="fixed top-0 left-0 w-full bg-opacity-90 bg-black-900 text-white shadow-lg py-4 px-6 md:px-12 flex justify-between items-center z-40">
-        <h1 className="text-2xl md:text-3xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Portfolio</h1>
+        {/* Brand Logo + Name */}
+        <a href="#" className="flex items-center gap-3">
+          <img
+            src={WebTrustLogo}
+            alt="WebTrust Logo"
+            className="h-17 w-auto object-contain"
+          />
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8 text-lg font-medium">  
-          <a href="#" className="flex items-center hover:text-blue-500 transition duration-300">
-           <HomeIcon className=""  /> Home
+          <a
+            href="#"
+            className="flex items-center hover:text-blue-500 transition duration-300"
+            onMouseEnter={() => homeRef.current?.startAnimation()}
+            onMouseLeave={() => homeRef.current?.stopAnimation()}
+          >
+            <HomeIcon ref={homeRef} className="" /> Home
           </a>
-          <a href="#about" className="flex items-center hover:text-blue-500 transition duration-300">  
-            <BookTextIcon className="mr-2" /> About  
+          <a
+            href="#about"
+            className="flex items-center hover:text-blue-500 transition duration-300"
+            onMouseEnter={() => aboutRef.current?.startAnimation()}
+            onMouseLeave={() => aboutRef.current?.stopAnimation()}
+          >  
+            <BookTextIcon ref={aboutRef} className="mr-2" /> About  
           </a>  
-          <a href="#skills" className="flex items-center hover:text-blue-500 transition duration-300"> 
-            <SkillIcon className="mr-2" /> Skills  
+          <a
+            href="#skills"
+            className="flex items-center hover:text-blue-500 transition duration-300"
+            onMouseEnter={() => skillsRef.current?.startAnimation()}
+            onMouseLeave={() => skillsRef.current?.stopAnimation()}
+          > 
+            <SkillIcon ref={skillsRef} className="mr-2" /> Skills  
           </a>   
-          <a href="#projects" className="flex items-center hover:text-blue-500 transition duration-300">  
-            <IdCardIcon className="mr-2" /> Projects  
+          <a
+            href="#projects"
+            className="flex items-center hover:text-blue-500 transition duration-300"
+            onMouseEnter={() => projectsRef.current?.startAnimation()}
+            onMouseLeave={() => projectsRef.current?.stopAnimation()}
+          >  
+            <IdCardIcon ref={projectsRef} className="mr-2" /> Projects  
           </a>  
           
-          <a href="#connect" className="flex items-center hover:text-blue-500 transition duration-300">  
-            <ConnectIcon className="mr-2" /> Connect  
+          <a
+            href="#connect"
+            className="flex items-center hover:text-blue-500 transition duration-300"
+            onMouseEnter={() => connectRef.current?.startAnimation()}
+            onMouseLeave={() => connectRef.current?.stopAnimation()}
+          >  
+            <ConnectIcon ref={connectRef} className="mr-2" /> Connect  
           </a>  
           <button  
             onClick={() => setIsModalOpen(true)}  
-            className="flex items-center gap-2 bg-blue-700 px-4 py-2 rounded-lg text-white hover:bg-blue-600 transition duration-300 cursor-pointer"  
+            className="flex items-center gap-2 bg-blue-700 px-4 py-2 rounded-lg text-white hover:bg-blue-600 transition duration-300 cursor-pointer"
+            onMouseEnter={() => resumeRef.current?.startAnimation()}
+            onMouseLeave={() => resumeRef.current?.stopAnimation()}
           >  
-            <FileTextIcon /> Resume  
-          </button>  
+            <FileTextIcon ref={resumeRef} /> Resume  
+          </button>
+          <a
+            href="https://www.instagram.com/web_trust_/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center hover:text-blue-500 transition duration-300"
+            aria-label="Instagram"
+            onMouseEnter={() => instaRef.current?.startAnimation()}
+            onMouseLeave={() => instaRef.current?.stopAnimation()}
+          >
+            <InstagramIcon ref={instaRef} className="" />
+          </a>  
         </nav>
 
        {/* Mobile Navigation with Sheet */}
@@ -71,55 +136,80 @@ const Header = () => {
         </SheetTrigger>
         <SheetContent side="right" className="bg-gray-900 text-white border-r-gray-800 w-70">
           <SheetHeader>
-            <SheetTitle className="text-white text-xl">Hi Buddy..💕</SheetTitle>
+            <SheetTitle className="text-white text-xl flex items-center gap-2">
+              <img src={WebTrustLogo} alt="WebTrust" className="h-12 w-auto" />
+            </SheetTitle>
           </SheetHeader>
           <div className="p-2">
             <nav className="flex flex-col gap-2">
               <a 
                 href="#" 
-                className="flex items-center gap-2 hover:text-blue-500 transition duration-300  "
+                className="flex items-center gap-2 hover:text-blue-500 transition duration-300"
                 onClick={() => setIsOpen(false)}
+                onMouseEnter={() => mHomeRef.current?.startAnimation()}
+                onMouseLeave={() => mHomeRef.current?.stopAnimation()}
               >  
-                <HomeIcon className="text-white" size={20} /> Home
+                <HomeIcon ref={mHomeRef} className="text-white" size={20} /> Home
               </a>  
               <a 
                 href="#about" 
                 className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
                 onClick={() => setIsOpen(false)}
+                onMouseEnter={() => mAboutRef.current?.startAnimation()}
+                onMouseLeave={() => mAboutRef.current?.stopAnimation()}
               >  
-                <BookTextIcon className="mr-2" /> About  
+                <BookTextIcon ref={mAboutRef} className="mr-2" /> About  
               </a>  
               <a 
                 href="#skills" 
                 className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
                 onClick={() => setIsOpen(false)}
+                onMouseEnter={() => mSkillsRef.current?.startAnimation()}
+                onMouseLeave={() => mSkillsRef.current?.stopAnimation()}
               >  
-                <SkillIcon className="mr-2" /> Skills  
+                <SkillIcon ref={mSkillsRef} className="mr-2" /> Skills  
               </a>  
               <a 
                 href="#projects" 
-                className="flex items-center  hover:text-blue-500 transition duration-300  py-2"
+                className="flex items-center hover:text-blue-500 transition duration-300 py-2"
                 onClick={() => setIsOpen(false)}
+                onMouseEnter={() => mProjectsRef.current?.startAnimation()}
+                onMouseLeave={() => mProjectsRef.current?.stopAnimation()}
               >  
-                <IdCardIcon className="mr-2" /> Projects  
+                <IdCardIcon ref={mProjectsRef} className="mr-2" /> Projects  
               </a>  
              
               <a 
                 href="#connect" 
                 className="flex items-center gap-2 hover:text-blue-500 transition duration-300 px-2 py-2"
                 onClick={() => setIsOpen(false)}
+                onMouseEnter={() => mConnectRef.current?.startAnimation()}
+                onMouseLeave={() => mConnectRef.current?.stopAnimation()}
               >  
-                <ConnectIcon className="mr-2" /> Connect  
+                <ConnectIcon ref={mConnectRef} className="mr-2" /> Connect  
               </a>  
               <button  
                 onClick={() => {
                   setIsModalOpen(true);
                   setIsOpen(false);
                 }}  
-                className="flex items-center gap-3 bg-blue-700 px-2 py-2 rounded-lg text-white hover:bg-blue-600 transition duration-300 cursor-pointer mt-2"  
+                className="flex items-center gap-3 bg-blue-700 px-2 py-2 rounded-lg text-white hover:bg-blue-600 transition duration-300 cursor-pointer mt-2"
+                onMouseEnter={() => mResumeRef.current?.startAnimation()}
+                onMouseLeave={() => mResumeRef.current?.stopAnimation()}
               >  
-                <FileTextIcon /> Resume  
+                <FileTextIcon ref={mResumeRef} /> Resume  
               </button>
+              <a 
+                href="https://www.instagram.com/web_trust_/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-blue-500 transition duration-300 py-2"
+                onClick={() => setIsOpen(false)}
+                onMouseEnter={() => mInstaRef.current?.startAnimation()}
+                onMouseLeave={() => mInstaRef.current?.stopAnimation()}
+              >
+                <InstagramIcon ref={mInstaRef} className="" /> Instagram  
+              </a>
             </nav>
           </div>
         </SheetContent>
